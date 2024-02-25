@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import FormProduct from '../Form/formProduct';
 import ProductList from '../Form/productList';
+import './button.css'; 
 
 const ProductManagement = () => {
   const [showAddForm, setShowAddForm] = useState(false);
@@ -25,12 +26,12 @@ const ProductManagement = () => {
       <div className="container-admin">
         <button 
         onClick={handleAddClick}>Agregar Producto
-        <img src="./img/imgBoton.png" alt="Imagen del botón" />
+        <img src="./img/imgBoton.png" alt="Imagen del botón" className='iconButton' />
         </button>
         <button 
         onClick={handleListClick}>Lista de Productos
         
-        <img src="./img/imgBoton2.png" alt="Imagen del botón" />
+        <img src="./img/imgBoton2.png" alt="Imagen del botón" className='iconButton' />
         
         </button>
       </div>

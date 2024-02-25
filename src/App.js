@@ -1,15 +1,15 @@
 
 import './App.css';
-import ProductManagement from './components/Buttons/button';
+import ProductManagement from './components/Container buttons/button';
 import Footer from './components/Footer/footer';
-import FormProduct from './components/Form/formProduct';
+
 
 
 function App() {
   return (
     <div className="App">
  
-    <p>hola</p>
+    <p>header</p>
     <ProductManagement></ProductManagement>
     <Footer></Footer>
 

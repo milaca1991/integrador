@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import ImageUploader from 'react-images-upload';
+import './formProduct.css'; 
+
+
 
 const FormProduct = () => {
   const [product, setProduct] = useState({
@@ -27,16 +30,8 @@ const FormProduct = () => {
 
   return (
     <form className="product-form" onSubmit={handleSubmit}>
-      <h1>Formulario para registar nuevos productos</h1>
-      <div className="form-group">
-        <label>Referencia:</label>
-        <input
-          type="text"
-          name="reference"
-          value={product.reference}
-          onChange={handleInputChange}
-        />
-      </div>
+      <h1>Agregar nuevos productos</h1>
+   
       <div className="form-group"> 
         <label>Nombre:</label>
         <input
@@ -55,16 +50,20 @@ const FormProduct = () => {
         />
       </div>
       <div className="form-group">
-        <label>Imágenes:</label>
+        <label>Subir imágenes:</label>
         <ImageUploader
-          withIcon={true}
-          buttonText="Subir imágenes"
+          withIcon={false}
+           buttonText={<img src={"./img/upload.png"}  />} 
           onChange={handleImageUpload}
-          imgExtension={['.jpg', '.gif', '.png', '.gif']}
+          imgExtension={['.jpg', '.gif', '.png', '.gif', '.jpeg']}
           maxFileSize={5242880} // 5MB
         />
       </div>
-      <button type="submit">Guardar Producto</button>
+      <button type="submit">
+      <img src="./img/save.png" alt="Imagen del botón" className='saveButton' />
+
+      Guardar Producto
+      </button>
     </form>
   );
 };
