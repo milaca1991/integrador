@@ -3,10 +3,9 @@ import ImageUploader from 'react-images-upload';
 import './formProduct.css'; 
 
 
-
-const FormProduct = () => {
+const FormProduct = ({ onSubmit }) => {
   const [product, setProduct] = useState({
-    reference: '',
+    id:'',
     name: '',
     description: '',
     images: [],
@@ -23,13 +22,16 @@ const FormProduct = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    
+    onSubmit(product); // Llama a la función onSubmit del componente padre
     console.log('Producto enviado:', product);
   };
 
   return (
+
+    <div>
+
     <form className="product-form" onSubmit={handleSubmit}>
+      
       <h1>Agregar nuevos productos</h1>
    
       <div className="form-group"> 
@@ -37,6 +39,7 @@ const FormProduct = () => {
         <input
           type="text"
           name="name"
+          placeholder='ingrese nombre'
           value={product.name}
           onChange={handleInputChange}
         />
@@ -52,8 +55,8 @@ const FormProduct = () => {
       <div className="form-group">
         <label>Subir imágenes:</label>
         <ImageUploader
-          withIcon={false}
-           buttonText={<img src={"./img/upload.png"}  />} 
+          withIcon={true}
+           buttonText="Seleccionar imágenes"
           onChange={handleImageUpload}
           imgExtension={['.jpg', '.gif', '.png', '.gif', '.jpeg']}
           maxFileSize={5242880} // 5MB
@@ -65,6 +68,11 @@ const FormProduct = () => {
       Guardar Producto
       </button>
     </form>
+   
+    
+
+    </div>
+
   );
 };
 

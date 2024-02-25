@@ -1,7 +1,13 @@
 import React from 'react';
-import ProductForm from './ProductForm'; // Ajusta la ruta según tu estructura de archivos
+
+import{ useState } from 'react';
 
 const ProductRegistration = () => {
+
+  const [registeredProducts, setRegisteredProducts] = useState([]);
+
+
+
   const handleProductSubmit = (productData) => {
     fetch("http://localhost:3001/registrar", {
       method: "POST",
@@ -22,7 +28,7 @@ const ProductRegistration = () => {
           alert(data.error);
         } else {
           console.log(data);
-           
+          setRegisteredProducts([...registeredProducts, data]); // Utiliza spread para agregar el nuevo producto al array existente
           alert("Producto registrado con éxito.");
         }
       })
@@ -33,11 +39,11 @@ const ProductRegistration = () => {
   };
 
   return (
+ 
     <div>
-      <h1>Registro de Producto</h1>
-      <ProductForm onSubmit={handleProductSubmit} />
-      
-    </div>
+    <h1>Registro de Producto</h1>
+   
+  </div>
   );
 };
 

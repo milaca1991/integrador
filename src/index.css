@@ -13,3 +13,31 @@ code {
 }
 
 
+/* En styles.css o tu archivo de estilos */
+.product-list {
+  width: 90%;
+  margin: auto;
+}
+
+.product-list h2 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.product-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.product-list li {
+  width: 100%;
+  border: 1px solid #000;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.product-list li span {
+  display: block;
+  margin-bottom: 5px;
+}
