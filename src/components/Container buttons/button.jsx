@@ -44,20 +44,33 @@ const ProductManagement = () => {
       {products.length > 0 && !showAddForm && (
         <div  className="product-list">
           <h2>Lista de Productos:</h2>
-          <ul>
-          <li className="list-header">
-        <span>ID</span>
-        <span>Nombre</span>
-        <span>Descripción</span>
-    
-      </li>
-            {products.map((product, index) => (
-              <li key={index}>
-              <span>ID: {product.id}</span>
-              <span>Nombre: {product.name}</span>
-            </li>
-            ))}
-          </ul>
+          <table className='table'>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Descripcion</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        {products.map((product, index) => (
+          <tr key={index}>
+            <td>{product.id}</td>
+            <td>{product.name}</td>
+            <td>{product.description}</td>
+            <td>
+                    <img
+                      src="./img/delete.png"
+                      alt="Eliminar"
+                      className="delete-icon"
+                      
+                    />
+                  </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
         </div>
       )}
     </div>
